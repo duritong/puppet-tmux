@@ -7,11 +7,12 @@ define tmux::config(
   require ::tmux
   file{$name:
     path => $target,
-    source => $source ?
+    source => $source ? {
       'normal' => [ "puppet:///modules/site-tmux/${fqdn}/${name}",
                     "puppet:///modules/site-tmux/${name}",
                     "puppet:///modules/screen/normal" ],
-      default => $source,
+      default => $source
+    },
     owner => $owner, group => $group, mode => 0600;
   }
 }

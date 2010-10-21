@@ -1,4 +1,4 @@
-define screen::config(
+define tmux::config(
   $source = 'normal',
   $target = '/root/.tmux.conf',
   $owner  = 'root',

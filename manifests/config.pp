@@ -4,6 +4,7 @@ define screen::config(
   $owner  = 'root',
   $group  = '0'
 ){
+  require ::tmux
   file{$name:
     path => $target,
     source => $source ?

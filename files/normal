@@ -1,0 +1,42 @@
+# Make it use C-a, similar to screen..
+unbind C-b
+unbind l
+set -g prefix C-a
+bind-key C-a last-window
+
+# Reload key
+bind r source-file ~/.tmux.conf
+
+setw -g utf8 on
+setw -g mode-keys vi
+set -g status-keys vi
+
+# THEME
+set -g status-bg black
+set -g status-fg white
+set -g status-interval 1
+set -g status-left-length 30
+set -g status-left '#[fg=green](#S) #(whoami)'
+set -g status-right-length 50
+set -g status-right '#[fg=red]#(hostname -s)#[fg=green] %y/%m/%d #[fg=yellow]%H:%M:%S#[default] #[fg=red]Load: #(cut -d " " -f 1-3 /proc/loadavg)#[default] '
+
+setw -g monitor-activity off
+set -g mouse-select-pane on
+set -g set-titles on
+set -g set-titles-string "#H/#S [#I:#W] #T"
+
+# default window title colors
+set-window-option -g window-status-fg white
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+
+# active window title colors
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr bright
+
+bind-key -n M-C new-window
+bind-key -n M-N next-window
+bind-key -n M-P previous-window
+bind-key -n M-L last-window
+

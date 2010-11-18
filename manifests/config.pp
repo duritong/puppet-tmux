@@ -10,7 +10,7 @@ define tmux::config(
     source => $source ? {
       'normal' => [ "puppet:///modules/site-tmux/${fqdn}/${name}",
                     "puppet:///modules/site-tmux/${name}",
-                    "puppet:///modules/screen/normal" ],
+                    "puppet:///modules/tmux/normal" ],
       default => $source
     },
     owner => $owner, group => $group, mode => 0600;

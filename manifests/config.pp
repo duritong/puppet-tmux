@@ -8,8 +8,8 @@ define tmux::config(
   file{$name:
     path => $target,
     source => $source ? {
-      'normal' => [ "puppet:///modules/site-tmux/${fqdn}/${name}",
-                    "puppet:///modules/site-tmux/${name}",
+      'normal' => [ "puppet:///modules/site_tmux/${::fqdn}/${name}",
+                    "puppet:///modules/site_tmux/${name}",
                     "puppet:///modules/tmux/normal" ],
       default => $source
     },
